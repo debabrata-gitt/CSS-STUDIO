@@ -1,0 +1,25 @@
+<style>
+.panel { display: none; padding: 20px; }
+.panel.active { display: block; }
+</style>
+
+<button data-tab="home">Home</button>
+<button data-tab="skills">Skills</button>
+<button data-tab="contact">Contact</button>
+
+<div id="home" class="panel active">Welcome to my website.</div>
+<div id="skills" class="panel">HTML, CSS, Python.</div>
+<div id="contact" class="panel">Contact: hello@example.com</div>
+
+<script>
+document.querySelectorAll("[data-tab]").forEach(button => {
+    button.onclick = () => {
+        document.querySelectorAll(".panel").forEach(panel => {
+            panel.classList.remove("active");
+        });
+
+        document.getElementById(button.dataset.tab)
+            .classList.add("active");
+    };
+});
+</script>
