@@ -1,0 +1,12 @@
+<textarea id="bio" maxlength="200"
+          placeholder="Write your bio..."></textarea>
+<p>Characters: <span id="count">0</span>/200</p>
+
+<script>
+const bio = document.getElementById("bio");
+const count = document.getElementById("count");
+
+bio.addEventListener("input", () => {
+    count.textContent = bio.value.length;
+});
+</script>
