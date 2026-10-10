@@ -1,0 +1,36 @@
+<form id="registerForm">
+    <h2>Create Account</h2>
+
+    <label>Username</label>
+    <input name="username" minlength="3" required>
+
+    <label>Email</label>
+    <input type="email" name="email" required>
+
+    <label>Password</label>
+    <input type="password" id="password"
+           minlength="8" required>
+
+    <label>Confirm Password</label>
+    <input type="password" id="confirmPassword" required>
+
+    <button type="submit">Register</button>
+    <p id="message"></p>
+</form>
+
+<script>
+document.getElementById("registerForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const password = document.getElementById("password").value;
+    const confirm = document.getElementById("confirmPassword").value;
+    const message = document.getElementById("message");
+
+    if (password !== confirm) {
+        message.textContent = "Passwords do not match!";
+        return;
+    }
+
+    message.textContent = "Form validation successful!";
+});
+</script>
