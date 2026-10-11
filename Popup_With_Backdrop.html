@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body { font-family: Arial; }
+button { padding: 12px; cursor: pointer; }
+dialog {
+  border: 0; border-radius: 14px;
+  padding: 28px; max-width: 350px;
+}
+dialog::backdrop { background: #0009; }
+</style>
+</head>
+<body>
+<button id="open">Open Modal</button>
+<dialog id="modal">
+  <h2>Confirm Action</h2>
+  <p>Do you want to continue?</p>
+  <button id="yes">Continue</button>
+  <button id="cancel">Cancel</button>
+</dialog>
+<p id="result"></p>
+<script>
+const modal = document.getElementById("modal");
+document.getElementById("open").onclick = () => modal.showModal();
+document.getElementById("cancel").onclick = () => modal.close();
+document.getElementById("yes").onclick = () => {
+  document.getElementById("result").textContent = "Confirmed!";
+  modal.close();
+};
+</script>
+</body>
+</html>
