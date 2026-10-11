@@ -1,0 +1,19 @@
+<button id="openDialog">Open Popup</button>
+
+<dialog id="myDialog">
+    <h2>Hello!</h2>
+    <p>This is a native HTML dialog.</p>
+    <button id="closeDialog">Close</button>
+</dialog>
+
+<script>
+const dialog = document.getElementById("myDialog");
+
+document.getElementById("openDialog").onclick = () => {
+    dialog.showModal();
+};
+
+document.getElementById("closeDialog").onclick = () => {
+    dialog.close();
+};
+</script>
