@@ -1,0 +1,39 @@
+<div id="cardContainer"></div>
+
+<template id="cardTemplate">
+    <article class="card">
+        <h2></h2>
+        <p></p>
+    </article>
+</template>
+
+<style>
+#cardContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+.card {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+}
+</style>
+
+<script>
+const items = [
+    { title: "HTML", description: "Structure webpages." },
+    { title: "CSS", description: "Style webpages." },
+    { title: "JavaScript", description: "Add interactivity." }
+];
+
+const template = document.getElementById("cardTemplate");
+const container = document.getElementById("cardContainer");
+
+items.forEach(item => {
+    const card = template.content.cloneNode(true);
+    card.querySelector("h2").textContent = item.title;
+    card.querySelector("p").textContent = item.description;
+    container.appendChild(card);
+});
+</script>
