@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body { font-family: Arial; padding: 30px; }
+.menu { position: relative; display: inline-block; }
+#options {
+  position: absolute; top: 45px; left: 0;
+  background: white; box-shadow: 0 4px 16px #0002;
+  min-width: 160px; padding: 8px;
+}
+#options button { display: block; width: 100%; padding: 10px; }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="menu" id="menu">
+  <button id="trigger" aria-expanded="false">Account ▾</button>
+  <div id="options" hidden>
+    <button data-choice="Profile">Profile</button>
+    <button data-choice="Settings">Settings</button>
+    <button data-choice="Logout">Logout</button>
+  </div>
+</div>
+<p id="output">Choose an option.</p>
+<script>
+const menu = document.getElementById("menu");
+const trigger = document.getElementById("trigger");
+const options = document.getElementById("options");
+
+function closeMenu() {
+  options.hidden = true;
+  trigger.setAttribute("aria-expanded", "false");
+}
+trigger.onclick = () => {
+  options.hidden = !options.hidden;
+  trigger.setAttribute("aria-expanded", String(!options.hidden));
+};
+document.addEventListener("click", e => {
+  if (!menu.contains(e.target)) closeMenu();
+});
+options.onclick = e => {
+  if (e.target.dataset.choice) {
+    document.getElementById("output").textContent =
+      "Selected: " + e.target.dataset.choice;
+    closeMenu();
+  }
+};
+</script>
+</body>
+</html>
