@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body { font: 16px Arial; max-width: 400px; margin: 30px auto; }
+.step { display: none; }
+.step.active { display: block; }
+input { padding: 10px; width: 100%; box-sizing: border-box; margin: 10px 0; }
+button { padding: 10px 16px; margin: 5px; }
+</style>
+</head>
+<body>
+<form id="form">
+  <section class="step active">
+    <h2>Step 1: Personal</h2>
+    <input name="name" placeholder="Full name" required>
+  </section>
+  <section class="step">
+    <h2>Step 2: Contact</h2>
+    <input name="email" type="email" placeholder="Email" required>
+  </section>
+  <section class="step">
+    <h2>Step 3: Finish</h2>
+    <p>Review your details, then submit.</p>
+  </section>
+  <button type="button" id="back">Back</button>
+  <button type="button" id="next">Next</button>
+  <button type="submit" id="submit" hidden>Submit</button>
+  <p id="status" aria-live="polite"></p>
+</form>
+<script>
+const form = document.getElementById("form");
+const steps = [...document.querySelectorAll(".step")];
+let current = 0;
+
+function render() {
+  steps.forEach((step, i) => step.classList.toggle("active", i === current));
+  document.getElementById("back").hidden = current === 0;
+  document.getElementById("next").hidden = current === steps.length - 1;
+  document.getElementById("submit").hidden = current !== steps.length - 1;
+}
+document.getElementById("next").onclick = () => {
+  const fields = [...steps[current].querySelectorAll("input")];
+  if (!fields.every(field => field.reportValidity())) return;
+  current++;
+  render();
+};
+document.getElementById("back").onclick = () => {
+  current--;
+  render();
+};
+form.onsubmit = e => {
+  e.preventDefault();
+  if (!form.reportValidity()) return;
+  document.getElementById("status").textContent = "Form completed!";
+};
+render();
+</script>
+</body>
+</html>
