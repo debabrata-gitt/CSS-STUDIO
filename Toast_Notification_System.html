@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body { font-family: Arial; }
+button { padding: 12px; }
+#toast {
+  position: fixed; right: 20px; bottom: 20px;
+  background: #172033; color: white;
+  padding: 16px 22px; border-radius: 10px;
+  opacity: 0; transform: translateY(15px);
+  transition: .25s; pointer-events: none;
+}
+#toast.show { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+<button id="notify">Save Changes</button>
+<div id="toast" role="status" aria-live="polite"></div>
+<script>
+let timer;
+const toast = document.getElementById("toast");
+document.getElementById("notify").onclick = () => {
+  toast.textContent = "Changes saved successfully!";
+  toast.classList.add("show");
+  clearTimeout(timer);
+  timer = setTimeout(() => toast.classList.remove("show"), 2500);
+};
+</script>
+</body>
+</html>
