@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body { font: 16px Arial; max-width: 500px; margin: 30px auto; }
+input { width: 100%; padding: 12px; box-sizing: border-box; }
+li { padding: 8px; }
+</style>
+</head>
+<body>
+<input id="search" placeholder="Search technology...">
+<ul id="results"></ul>
+<script>
+const data = ["HTML", "CSS", "JavaScript", "Python", "React", "Node.js"];
+const input = document.getElementById("search");
+const results = document.getElementById("results");
+let timer;
+
+input.addEventListener("input", () => {
+  clearTimeout(timer);
+  timer = setTimeout(() => {
+    const query = input.value.trim().toLowerCase();
+    const matches = data.filter(item => item.toLowerCase().includes(query));
+    results.replaceChildren();
+    matches.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      results.appendChild(li);
+    });
+  }, 250);
+});
+</script>
+</body>
+</html>
