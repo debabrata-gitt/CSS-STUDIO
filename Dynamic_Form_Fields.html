@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Dynamic Fields</title></head>
+<body>
+<h2>Skills</h2>
+<div id="fields"></div>
+<button id="add" type="button">Add Skill</button>
+<button id="show" type="button">Show Skills</button>
+<pre id="output"></pre>
+<script>
+const fields = document.getElementById("fields");
+document.getElementById("add").onclick = () => {
+  const input = document.createElement("input");
+  input.placeholder = "Enter a skill";
+  input.maxLength = 50;
+  input.style.display = "block";
+  input.style.margin = "8px";
+  fields.appendChild(input);
+};
+document.getElementById("show").onclick = () => {
+  const skills = [...fields.querySelectorAll("input")]
+    .map(input => input.value.trim()).filter(Boolean);
+  document.getElementById("output").textContent = skills.join("\n");
+};
+</script>
+</body>
+</html>
