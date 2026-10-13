@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Cart Calculator</title></head>
+<body>
+<h2>Shopping Cart</h2>
+<label>Product price: ₹<input id="price" type="number" min="0" value="500"></label>
+<br><br>
+<label>Quantity:
+<input id="qty" type="number" min="1" max="99" value="1"></label>
+<h3 id="total"></h3>
+<script>
+const price = document.getElementById("price");
+const qty = document.getElementById("qty");
+
+function calculate() {
+  const p = Math.max(0, Number(price.value) || 0);
+  const q = Math.min(99, Math.max(1, Number(qty.value) || 1));
+  document.getElementById("total").textContent =
+    "Total: ₹" + (p * q).toLocaleString("en-IN");
+}
+price.oninput = calculate;
+qty.oninput = calculate;
+calculate();
+</script>
+</body>
+</html>
