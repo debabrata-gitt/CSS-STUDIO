@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body { font: 16px Arial; display: grid; gap: 12px; padding: 20px; }
+textarea { width: 100%; height: 180px; box-sizing: border-box; }
+#preview { border: 1px solid #aaa; padding: 15px; }
+</style>
+</head>
+<body>
+<textarea id="editor">Welcome to my page!</textarea>
+<h3>Preview</h3>
+<div id="preview"></div>
+<script>
+const editor = document.getElementById("editor");
+const preview = document.getElementById("preview");
+function render() {
+  const p = document.createElement("p");
+  p.textContent = editor.value;
+  preview.replaceChildren(p);
+}
+editor.oninput = render;
+render();
+</script>
+</body>
+</html>
