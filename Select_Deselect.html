@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Select All</title></head>
+<body>
+<label><input type="checkbox" id="all"> Select all</label>
+<hr>
+<label><input class="item" type="checkbox" value="HTML"> HTML</label><br>
+<label><input class="item" type="checkbox" value="CSS"> CSS</label><br>
+<label><input class="item" type="checkbox" value="JavaScript"> JavaScript</label>
+<p id="result"></p>
+<script>
+const all = document.getElementById("all");
+const items = [...document.querySelectorAll(".item")];
+
+all.onchange = () => items.forEach(item => item.checked = all.checked);
+
+items.forEach(item => item.onchange = () => {
+  all.checked = items.every(x => x.checked);
+  all.indeterminate = items.some(x => x.checked) && !all.checked;
+});
+
+document.addEventListener("change", () => {
+  document.getElementById("result").textContent =
+    "Selected: " + items.filter(x => x.checked).map(x => x.value).join(", ");
+});
+</script>
+</body>
+</html>
