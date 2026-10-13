@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Sortable Table</title></head>
+<body>
+<table border="1" cellpadding="10">
+  <thead><tr>
+    <th><button data-key="name">Sort by name</button></th>
+    <th><button data-key="marks">Sort by marks</button></th>
+  </tr></thead>
+  <tbody id="body"></tbody>
+</table>
+<script>
+const students = [
+  {name:"Rahul", marks:82},
+  {name:"Priya", marks:94},
+  {name:"Amit", marks:76},
+  {name:"Debabrata", marks:89}
+];
+let ascending = true;
+const tbody = document.getElementById("body");
+
+function render(data) {
+  tbody.replaceChildren();
+  data.forEach(s => {
+    const row = document.createElement("tr");
+    [s.name, s.marks].forEach(value => {
+      const cell = document.createElement("td");
+      cell.textContent = value;
+      row.appendChild(cell);
+    });
+    tbody.appendChild(row);
+  });
+}
+document.querySelectorAll("[data-key]").forEach(button => {
+  button.onclick = () => {
+    const key = button.dataset.key;
+    ascending = !ascending;
+    const sorted = [...students].sort((a, b) =>
+      typeof a[key] === "number"
+        ? (a[key] - b[key]) * (ascending ? 1 : -1)
+        : a[key].localeCompare(b[key]) * (ascending ? 1 : -1)
+    );
+    render(sorted);
+  };
+});
+render(students);
+</script>
+</body>
+</html>
