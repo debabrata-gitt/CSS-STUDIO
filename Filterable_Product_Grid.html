@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+#products { display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 12px; }
+.card { border: 1px solid #ccc; border-radius: 10px; padding: 15px; }
+</style>
+</head>
+<body>
+<select id="category">
+  <option value="all">All products</option>
+  <option value="tech">Technology</option>
+  <option value="book">Books</option>
+</select>
+<div id="products"></div>
+<script>
+const products = [
+  {name:"Laptop", category:"tech", price:50000},
+  {name:"Headphones", category:"tech", price:2000},
+  {name:"HTML Guide", category:"book", price:400},
+  {name:"CSS Guide", category:"book", price:350}
+];
+const container = document.getElementById("products");
+
+function render() {
+  const category = document.getElementById("category").value;
+  container.replaceChildren();
+  products.filter(p => category === "all" || p.category === category)
+    .forEach(p => {
+      const card = document.createElement("article");
+      card.className = "card";
+      const title = document.createElement("h3");
+      title.textContent = p.name;
+      const price = document.createElement("p");
+      price.textContent = `₹${p.price.toLocaleString("en-IN")}`;
+      card.append(title, price);
+      container.appendChild(card);
+    });
+}
+document.getElementById("category").onchange = render;
+render();
+</script>
+</body>
+</html>
