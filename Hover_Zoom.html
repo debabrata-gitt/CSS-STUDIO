@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Zoom</title>
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: #e2e8f0;
+        font-family: Arial, sans-serif;
+    }
+
+    .image-card {
+        width: min(450px, 90%);
+        overflow: hidden;
+        border-radius: 18px;
+        background: white;
+        box-shadow: 0 12px 30px #0002;
+    }
+
+    .image-card img {
+        display: block;
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+    }
+
+    .image-card:hover img {
+        transform: scale(1.12);
+    }
+
+    .details {
+        padding: 20px;
+    }
+
+    .details h2 {
+        margin-top: 0;
+    }
+
+    .details p {
+        color: #64748b;
+        line-height: 1.6;
+    }
+</style>
+</head>
+<body>
+    <article class="image-card">
+        <img
+            src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=900"
+            alt="Mountain landscape">
+
+        <div class="details">
+            <h2>Explore Nature</h2>
+            <p>Discover beautiful places and peaceful landscapes.</p>
+        </div>
+    </article>
+</body>
+</html>
