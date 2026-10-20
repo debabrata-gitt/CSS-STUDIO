@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navigation Bar</title>
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f1f5f9;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 18px 7%;
+        background: #0f172a;
+        color: white;
+    }
+
+    .logo {
+        font-size: 25px;
+        font-weight: bold;
+        color: #38bdf8;
+    }
+
+    .links {
+        display: flex;
+        gap: 24px;
+    }
+
+    .links a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .links a:hover {
+        color: #38bdf8;
+    }
+
+    .contact {
+        padding: 10px 16px;
+        border-radius: 8px;
+        background: #0284c7;
+        color: white;
+        text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+        nav {
+            flex-wrap: wrap;
+        }
+
+        .links {
+            order: 3;
+            width: 100%;
+            justify-content: space-between;
+            gap: 10px;
+        }
+    }
+</style>
+</head>
+<body>
+<nav>
+    <div class="logo">DEBU STUDIO</div>
+
+    <div class="links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <a class="contact" href="#contact">Let's Talk</a>
+</nav>
+</body>
+</html>
