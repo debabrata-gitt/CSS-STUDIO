@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glass Card</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #7c3aed, #06b6d4);
+        }
+
+        .glass {
+            width: min(340px, 90%);
+            padding: 35px;
+            color: white;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: 20px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 12px 35px #00000020;
+        }
+
+        .glass h2 {
+            font-size: 28px;
+        }
+
+        .glass p {
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="glass">
+        <h2>Glass Effect</h2>
+        <p>A modern frosted-glass design made with CSS.</p>
+    </div>
+</body>
+</html>
