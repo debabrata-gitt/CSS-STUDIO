@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Grid</title>
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+        margin: 0;
+        padding: 30px 20px;
+        font-family: Arial, sans-serif;
+        background: #f8fafc;
+    }
+
+    h1 { text-align: center; }
+
+    .grid {
+        max-width: 1000px;
+        margin: 30px auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        gap: 20px;
+    }
+
+    .item {
+        position: relative;
+        padding: 15px;
+        background: white;
+        border-radius: 14px;
+        box-shadow: 0 4px 15px #0000000d;
+    }
+
+    .item img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .tag {
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        padding: 6px 10px;
+        border-radius: 20px;
+        background: #dcfce7;
+        color: #166534;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .item h3 { margin-bottom: 8px; }
+
+    .price {
+        color: #0f766e;
+        font-weight: bold;
+        font-size: 20px;
+    }
+</style>
+</head>
+<body>
+<h1>Trending Products</h1>
+
+<div class="grid">
+    <article class="item">
+        <span class="tag">NEW</span>
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" alt="Watch">
+        <h3>Classic Watch</h3>
+        <p class="price">₹1,499</p>
+    </article>
+
+    <article class="item">
+        <span class="tag">SALE</span>
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" alt="Shoes">
+        <h3>Running Shoes</h3>
+        <p class="price">₹2,199</p>
+    </article>
+
+    <article class="item">
+        <span class="tag">POPULAR</span>
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" alt="Headphones">
+        <h3>Headphones</h3>
+        <p class="price">₹999</p>
+    </article>
+</div>
+</body>
+</html>
