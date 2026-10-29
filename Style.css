@@ -1,17 +1,3 @@
-p{
-    text-align: start
-     ;
-}
- 
-
-p{
-    text-transform: capitalize;
-}
-
-p{
-    text-decoration: firebrick;
-}
-
-h1{
-    text-align: center ;
+#one{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
