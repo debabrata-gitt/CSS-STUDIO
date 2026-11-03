@@ -1,0 +1,10 @@
+div{
+    height: 100px;
+    width: 100px;
+    background-image: url(MAHADEV\ JI\ WALLPAPER.jpg);
+    color:rgb(232, 18, 18);
+    background-size: cover;
+    position: fixed;
+    right: 0px;
+    top: 50px;
+}
